@@ -16,3 +16,6 @@
 ## 开发记录
 + 2018.01.03 开始记录，之前已经 400 次 commit（未记录）
 + 2018.01.03 【重构】ParamCheckService.check() 修改为链式调用，修改位于 api 包内，相关的调用代码
++ 2018.01.05 【新增】
+	- 针对 jdbc.properties 和 neubbs.properties 配置文件的'password'字段进行加密（目前 Base64），
+	- 定义处理器，继承 Spring 的 PropertyPlaceholderConfigurer，重写 convertProperty() 函数 读取配置文件的时进行转码解密
