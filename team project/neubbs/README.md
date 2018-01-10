@@ -25,3 +25,6 @@
     - 参数检查服务重命名(ParamCheckService -> ValidationService)
     - 优化 account，topic，count，file 的 api，修改注释与函数名，更加清晰直观
     - 使用 ThreadLocal，将公共参数提取出来（例如: request，response），在 api 过滤器中进行注入，优化 http 服务，全面修改相关类与接口
++ 2018.01.10【修改 + 重构】
+  - 优化 controller/annotation 注包内，注解接口的 javadoc
+  - 删除 'SwitchDataSourceHandler.java‘ 类，将其动态切数据源功能，移植到'DynamicDataSource'，SetConst 常量类谁知数据源名（云 + 本地）; 重命名 'DynamicDataSource'  -> 'DynamicSwitchDataSource', 
