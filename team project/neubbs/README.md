@@ -27,4 +27,9 @@
     - 使用 ThreadLocal，将公共参数提取出来（例如: request，response），在 api 过滤器中进行注入，优化 http 服务，全面修改相关类与接口
 + 2018.01.10【修改 + 重构】
   - 优化 controller/annotation 注包内，注解接口的 javadoc
-  - 删除 'SwitchDataSourceHandler.java‘ 类，将其动态切数据源功能，移植到'DynamicDataSource'，SetConst 常量类谁知数据源名（云 + 本地）; 重命名 'DynamicDataSource'  -> 'DynamicSwitchDataSource', 
+  - 删除 'SwitchDataSourceHandler.java‘ 类，将其动态切数据源功能，移植到'DynamicDataSource'，SetConst 常量类谁知数据源名（云 + 本地）; 重命名 'DynamicDataSource'  -> 'DynamicSwitchDataSource'
++ 2018.01.11【重构】
+  - 删除 controller/data 目录，移动文件至 controller/handler 目录重命名''DynamicSwitchDataSource' -> 'DynamicSwitchDataSourceHandler'
+  - 重命名 'DecryptPropertyPlaceholderConfiguerHandler'-> 'DecryptConfigurationFileHandler'
+  - 优化 'ApiInterceptor.java' ，调整代码结构与注释
+  - 重命名 ‘ClientOnlineAccessListenert.java’ -> 'ClientListener.java', 重构代码，- 删除统计访问人数（vistUser）以及相关类的相关字段与函数调用，类变量 HashMap 修改为 ConcurrentHashMap（维护在线登陆用户 Session），新的客户端若请求 api，新建 Session，并加入 ConcurrentHashMap（哈希表）
