@@ -33,3 +33,6 @@
   - 重命名 'DecryptPropertyPlaceholderConfiguerHandler'-> 'DecryptConfigurationFileHandler'
   - 优化 'ApiInterceptor.java' ，调整代码结构与注释
   - 重命名 ‘ClientOnlineAccessListenert.java’ -> 'ClientListener.java', 重构代码，- 删除统计访问人数（vistUser）以及相关类的相关字段与函数调用，类变量 HashMap 修改为 ConcurrentHashMap（维护在线登陆用户 Session），新的客户端若请求 api，新建 Session，并加入 ConcurrentHashMap（哈希表）
++ 2018.01.13【重构】
+  - 删除 ' PageJsonDTO.java' 和'PageJsonListDTO.java' ，整合成 'ApiJsonDTO.java' ，重新设计
+  - 修改 'ApiJsonDTO.java’  的接口的 error( ) -> fail(), 修改 Account api 内相关代码  
