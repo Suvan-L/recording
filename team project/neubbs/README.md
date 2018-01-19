@@ -39,4 +39,6 @@
 + 2018.01.18【修改格式 + 重构】
   - 修改 utils 包下工具类  ‘PictureProcessingUtil.java'  的代码结构，使其通过 ’Neubbs Java CheckStyle‘ 代码规范检查
   - 优化 constant/log  包，新增 'LogWarnEnum.java'，尝试枚举类型定义日志常量，同时删除原 ’LogWarn.java‘，并修改相关的代码引用
-  - 修改 ’RequestParamCheckUtil.java‘ 工具类，修改类变量名，见名知意
+    - 修改 ’RequestParamCheckUtil.java‘ 工具类，修改类变量名，见名知意 
++ 2018.01.19 【重构】
+  - 优化 validation service，校验服务（参数验证），修改函数名和注释，合并部分函数，修改 controller/api 包下相关代码调用
