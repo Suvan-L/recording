@@ -46,3 +46,6 @@
   - 优化 'captcha service', 验证码服务，修改函数名和添加注释
   - 优化 ’email service‘ 邮件服务，修改相应函数名，部分行内注释转为 javadoc 注释
   - 优化 'file treat service' 文件处理服务，删除 'transferToServer()' 和 'compressFile()' 暂时无用到，后续需要使用时再加，修改部分函数与变量名
++ 2018.01.21 【重构】
+  - 优化 ‘ftp service’，FTP  服务，删除 'getServerPersonalUserAvatorDirectoryPath()' 整合进''uploadUserAvatorImage()' , 修改其他函数名和注释，优化 'FtpUtil.java' ，FTP 工具类，删除 ‘keepConnect()’ 和 'getFTPClientInstance()'，修改相关函数调用，类变量 'FTPClient' 声明 volatile ，保证多线程可见性
+  - 优化 'http service' http 请求服务，修改函数与注释，类 javadoc 加入函数名列表，在 ‘captcha, email, file treat, ftp service' 的类 javadoc 都加入函数名列表，'file treat service' 的 'checkUploadAvatarNorm()' 函数名修改为 'checkUserUploadAvatarNorm()'
