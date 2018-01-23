@@ -53,3 +53,5 @@
   - 删除 'page display service' 业务接口和实现类
   - 修改 'random service' 接口，添加部分注释
   - 优化 'redis service' redis 服务，删除无用函数，修改部分函数名与注释，删除 service 测试包（包含 Redis 测试类），直接对 api 测试，暂时不进行 service 测试，‘redis service’ 重命名为 'cache service', 修改相关调用和代码
++ 2018.01.23 【重构】
+  - 优化 ‘secret service’ 优化加密服务，修改函数名和注释，‘getUserInfoByAuthentication()’ 通过 authentication 获取用户信息，删除 key 传递参数（直接在函数内写入），修复各个接口相关代码调用
