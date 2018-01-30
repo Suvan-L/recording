@@ -64,5 +64,7 @@
 + 2018.01.28 【重构】
   - 优化 'validation service' 校验服务，优化函数代码，修改部分函数名，添加类注释（展示校验服务函数列表）
 + 2018.01.29【修改代码格式 + 重构】
-	- 修改 'AnnotationUtil.java' 注解工具类注释
- 	- 修改 'CookieUtil.java' Cookie工具类注释，删除 'isExistCookie()',添加类注释（展示 Cookie 工具类函数列表） 
+  - 修改 'AnnotationUtil.java' 注解工具类注释
+   - 修改 'CookieUtil.java' Cookie工具类注释，删除 'isExistCookie()',添加类注释（展示 Cookie 工具类函数列表） 
++ 2018.01.30【修改代码格式 + 修复】
+	- 修改 'FtpUtil.java' FTP工具类，static 静态块中删除 'connect()' 操作，修复 'delete()' 函数 ，若删除目录（第二参数为空），无法释放 ftp 连接 的 bug
