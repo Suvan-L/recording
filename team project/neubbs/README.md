@@ -67,4 +67,6 @@
   - 修改 'AnnotationUtil.java' 注解工具类注释
    - 修改 'CookieUtil.java' Cookie工具类注释，删除 'isExistCookie()',添加类注释（展示 Cookie 工具类函数列表） 
 + 2018.01.30【修改代码格式 + 修复】
-	- 修改 'FtpUtil.java' FTP工具类，static 静态块中删除 'connect()' 操作，修复 'delete()' 函数 ，若删除目录（第二参数为空），无法释放 ftp 连接 的 bug
+  - 修改 'FtpUtil.java' FTP工具类，static 静态块中删除 'connect()' 操作，修复 'delete()' 函数 ，若删除目录（第二参数为空），无法释放 ftp 连接 的 bug
++ 2018.01.31 【重构】
+  - 优化 'json util class' JSON格式处理工具类，函数名优化，代码格式整理，删除不必要引用，完善注释，修复相关服务类的代码调用
