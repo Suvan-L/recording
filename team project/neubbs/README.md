@@ -1,15 +1,11 @@
 # Neubbs 项目
 
 ## 待完成目标
-+ resources/redis.properties 文件多余内容
-+ 用户回复列表,喜欢话题列表，关注列表，需做分页
-+ 环境脚本搭建，尝试 dockie 
++ 重构代码（功能代码 + 单元测试）
++ 环境脚搭建，尝试 Docker 部署应用程序
 + 消息通知功能开发
-+ 重构代码
 + 日志系统
-+ 异常体系
-+ 邮箱 HTML 传入值
-+ 单元测试补齐
++ 用户回复列表,喜欢话题列表，关注列表，需做分页
 + Mybatis sql 语句优化，mapping 文件减少，尝试通用 mapping
 
 
@@ -72,4 +68,7 @@
   - 优化 'json util class' JSON格式处理工具类，函数名优化，代码格式整理，删除不必要引用，完善注释，修复相关服务类的代码调用
   - 修改项目根目录 'README.md' 文档，重新定义 [后端 API 交互协议] 链接地址（原本已失效）
 + 2018.02.01【重构】
-	- 优化 'jwt token util class' 口令工具类，改名为 'token util class'，删除只引用一次的对象，合并代码行，简化函数调用，修改函数名，解密函数不再需要输入密钥，修复相关的代码调用
+  - 优化 'jwt token util class' 口令工具类，改名为 'token util class'，删除只引用一次的对象，合并代码行，简化函数调用，修改函数名，解密函数不再需要输入密钥，修复相关的代码调用
++ 2018.02.02 【重构】
+  - 优化 'map filter util class' 键值对过滤工具类，优化注释，修改 'filterTopicInfo()' 函数，删除最后回复时间替换功能代码（若查询 lastRelyTime 为 null， 则替换为话题发布时间）（已经由 sql 脚本在，初始化数据表时，forum_topic 的 'ft_lastreplytime' 设置好 Default Value）
+  - 优化 'pattern util class' 正则匹配工具类，提取重复代码至单一函数，正则变量名优化，优化注释
