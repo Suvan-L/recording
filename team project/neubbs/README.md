@@ -72,3 +72,7 @@
 + 2018.02.02 【重构】
   - 优化 'map filter util class' 键值对过滤工具类，优化注释，修改 'filterTopicInfo()' 函数，删除最后回复时间替换功能代码（若查询 lastRelyTime 为 null， 则替换为话题发布时间）（已经由 sql 脚本在，初始化数据表时，forum_topic 的 'ft_lastreplytime' 设置好 Default Value）
   - 优化 'pattern util class' 正则匹配工具类，提取重复代码至单一函数，正则变量名优化，优化注释
++ 2018.02.03 【修改数据脚本 + 说明书】
+  - 修改数据库脚本，实现"建库，建表，重复执行则清空"，优化注释，重命名 'initBuildForumDataTables.sql' -> 'InitNeubbsForumDatabase.sql' 和 initInsertTestDataScipt.sql'  -> 'InsertTestData.sql' 
+  - 修改 java 后端开发说明书，'src\main\java\README.md'，重新规范说明和规划目录机构
+  - 修改根目录 'README.md'，重新整理
