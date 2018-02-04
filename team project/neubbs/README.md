@@ -76,3 +76,6 @@
   - 修改数据库脚本，实现"建库，建表，重复执行则清空"，优化注释，重命名 'initBuildForumDataTables.sql' -> 'InitNeubbsForumDatabase.sql' 和 initInsertTestDataScipt.sql'  -> 'InsertTestData.sql' 
   - 修改 java 后端开发说明书，'src\main\java\README.md'，重新规范说明和规划目录机构
   - 修改根目录 'README.md'，重新整理
++ 2018.02.04 【修改代码格式 + 重构】
+	- 优化 'public params util class' 公共参数工具类，修改注释，添加函数列表说明
+	- 重构 'random util class' 生成随机数工具类，删除无用函数，重命名函数，优化 `generateRandomNumbers()` 和 `generateRandomString()`
