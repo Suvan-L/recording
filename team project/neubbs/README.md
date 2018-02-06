@@ -6,6 +6,7 @@
 + 消息通知功能开发
 + 日志系统
 + 用户回复列表,喜欢话题列表，关注列表，需做分页
++ 缓存模块构建
 + Mybatis sql 语句优化，mapping 文件减少，尝试通用 mapping
 
 
@@ -77,5 +78,11 @@
   - 修改 java 后端开发说明书，'src\main\java\README.md'，重新规范说明和规划目录机构
   - 修改根目录 'README.md'，重新整理
 + 2018.02.04 【修改代码格式 + 重构】
-	- 优化 'public params util class' 公共参数工具类，修改注释，添加函数列表说明
-	- 重构 'random util class' 生成随机数工具类，删除无用函数，重命名函数，优化 `generateRandomNumbers()` 和 `generateRandomString()`
+  - 优化 'public params util class' 公共参数工具类，修改注释，添加函数列表说明
+  - 重构 'random util class' 生成随机数工具类，删除无用函数，重命名函数，优化 `generateRandomNumbers()` 和 `generateRandomString()`
++ 2018.02.05【修改代码格式 + 重构 + 测试相关】
+  - 优化 'setConst.java' 设置常量类，优化注释，删除无意义常量（例：public static final int ONE = 1），分隔不同类型常量，添加类说明
+  - 优化 'request params check util class' 请求参数检查工具类，重命名为 'ParamValidate.java'，删除 'check(Map)' 检查器（重载类型 2），优化代码结构（静态变量-静态代码块-私有静态内部类-公共函数-私有函数），优化注释（删除不清晰语义注释，修正错别字，补充部分注释，每个代码层添加分隔注释）
+  - 修复部分测试类错误命名
++ 2018.02.06 【重构】
+  - 删除 'ResponsePrintWriterUtil.java' 响应输入工具类，因为只有 'ApiExceptionHandler.java' 用到，所以唯一的函数 outFailJSONMessage()'' 直接移植过去，删除不必要注释，构造有序哈希 Map 直接初始面积 = 3，内置 "model" 字段  HashMap 构造长度修改位0（空对象即可）
