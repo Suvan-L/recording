@@ -86,3 +86,21 @@
   - 修复部分测试类错误命名
 + 2018.02.06 【重构】
   - 删除 'ResponsePrintWriterUtil.java' 响应输入工具类，因为只有 'ApiExceptionHandler.java' 用到，所以唯一的函数 outFailJSONMessage()'' 直接移植过去，删除不必要注释，构造有序哈希 Map 直接初始面积 = 3，内置 "model" 字段  HashMap 构造长度修改位0（空对象即可）
++ 2018.02.07 【重构】
+  - 优化 'SecretUtil.java' 工具类
+    - 删除暂时无用的 AES 加解密函数，二进制转十六进制函数
+    - 修改函数名与注释，修改相关代码调用
+    - 优化 MD5 加密函数
+    - 'encryptUserPassword()' 函数移动至 'UserServiceImpl.java'，成为私有函数，相关其余的代码调用修复（服务之间不进行相关调用，降低耦合）
+    - 新增 'SecretFailException.java' 标记加密失败异常（若工具类加密和解码失败，重新包装成此异常然后向上抛出）
+    - 'LogWarnEnum' 日志提醒枚举类添加 UC（Util Class) 类型，是哟管工具类的异常
+    - 修改 'SeecretUtilTest.java' 工具测试类，每个函数单独测试，删除无用函数测试，优化注释，修复相关代码
+  - 优化 'SendEmailUtil.java' 工具类，
+    - 部分静态常量移动到 'SetConst.java' 设置常量类
+    - 修改函数名 'sendEmail()' -> 'send()'，优化注释
+    - 新增 'UtilClassException.java' 工具类异常，读取配置文件若出现 IO 异常包装后抛出
+  - 优化 'StringUtil.java' 字符串工具类
+    - 静态块修改为读取  neubbs.properties 函数（原本是通过配置类 NeubbsConfigDO.java）
+    - 修改部分函数名，修改注释
+    - 优化 'spliceUserAvatorUrl()' 函数代码，if 判断用三目运算符改写，不使用 StringBuilder 拼接字符串，删除相关的私有函数，合并到唯一函数，重命名为 'generateUserAvatarUrl()'
+
