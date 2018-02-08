@@ -103,4 +103,20 @@
     - 静态块修改为读取  neubbs.properties 函数（原本是通过配置类 NeubbsConfigDO.java）
     - 修改部分函数名，修改注释
     - 优化 'spliceUserAvatorUrl()' 函数代码，if 判断用三目运算符改写，不使用 StringBuilder 拼接字符串，删除相关的私有函数，合并到唯一函数，重命名为 'generateUserAvatarUrl()'
-
++ 2018.02.08 【重构 + 修复 + 删除】
+  - 删除 'AnnotationUtil.java' 和 'AnnotationUtilTest.java' ，修复相关调用
+  - 修复 'FtpUtil.java'  bug
+    - 无法连接服务器异常（读取配置文件时加入 Base64 解码操作）
+    - 操作 ftp 服务器异常（连接时需调用 'FtpClient.enterLocalPassiveMode()' 开通端口传输数据
+    - 部分操作若失败抛出自定义异常，'FileUploadFailException.java' 重命名为 'FtpException' 
+  - 重构 'FtpUtilTest.java' 重构 ftp 测试代码
+  - 删除部分异常类，整合成 'service exception' 和 'util class exception'
+    - 删除 SecretException.java' 加密失败异常，修复相关代码，变为 'UtilClassException.java'
+    - 'AccountErrorException.java' 重命名为 'ServiceException.java' 业务异常
+    - 删除 'TokenErrorException' 口令失败异常，修复相关代码，变为 'UtilClassException.java' 或者 'ServiceException.java'
+    - 删除 'FtpServiceErrorException.java' ftp服务异常，修复修复相关代码，变为 'ServiceException.java
+    - 删除 'DatabaseOperationFailException.java' 数据操作异常，修复相关代码调用为 'ServiceException.java'
+    - 删除 'TopicErrorException.java' 话题错误异常，修复相关代码调用为 'ServiceException'  
+  - 重构工具类测试用例
+    - 优化 'JsonUtilTest.java'  
+    - 新建 'MapFilterUtilTest.java'，测试键值对过滤工具类
