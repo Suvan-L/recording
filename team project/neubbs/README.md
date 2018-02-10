@@ -123,4 +123,6 @@
 + 2018.02.09 【文档】
   - 更新项目说明，添加项目 logo，图片放置(./src/main/webapp/resources/images/neubbs.jpg) 
   - 重构 'ParamValidateUtil.java' 参数校验工具测试类
++ 2018.02.10 【重构】
+	- 重构 'ParamValidateUtils.java' 参数校验测试代码
 
