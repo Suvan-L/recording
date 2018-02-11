@@ -8,6 +8,7 @@
 + 用户回复列表,喜欢话题列表，关注列表，需做分页
 + 缓存模块构建
 + Mybatis sql 语句优化，mapping 文件减少，尝试通用 mapping
++ 安全优化，加密优化
 
 
 ## 开发记录
@@ -124,5 +125,7 @@
   - 更新项目说明，添加项目 logo，图片放置(./src/main/webapp/resources/images/neubbs.jpg) 
   - 重构 'ParamValidateUtil.java' 参数校验工具测试类
 + 2018.02.10 【重构】
-	- 重构 'ParamValidateUtils.java' 参数校验测试代码
-
+  - 重构 'PatternUtilTest.java' 正则工具测试代码
++ 2018.02.11 【重构】
+	- 重构 'RandomUtilTest.java' 随机数工具测试代码
+	- 重构 'SecretUtilTest.java' 加密工具测试代码
