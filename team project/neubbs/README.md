@@ -127,5 +127,12 @@
 + 2018.02.10 【重构】
   - 重构 'PatternUtilTest.java' 正则工具测试代码
 + 2018.02.11 【重构】
-	- 重构 'RandomUtilTest.java' 随机数工具测试代码
-	- 重构 'SecretUtilTest.java' 加密工具测试代码
+  - 重构 'RandomUtilTest.java' 随机数工具测试代码
+  - 重构 'SecretUtilTest.java' 加密工具测试代码
++ 2018.02.12 【重构 + 修复 Bug】
+  - 重构 'SendEmailUtilTest.java' 发送邮件工具测试代码'
+  - 修复不能注销 Bug，修改 'ApiJsonDTO' 
+    - 构造函数 mode 字段默认不要设置为 new Object，修改为设置 new HashMap<>(0)
+    - 'CookUtil.java' Cookie 工具类，获取 Cookie 值，加入异常判断，若在 HTTP Request Headers 中未获取到 Cookie ，抛出异常
+- 2018.02.13 【测试】
+	- 'StringUtil.java' 字符串工具类，添加测试类 'StringUtilTest.java'，每个函数进行单元测试
