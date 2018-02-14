@@ -136,3 +136,9 @@
     - 'CookUtil.java' Cookie 工具类，获取 Cookie 值，加入异常判断，若在 HTTP Request Headers 中未获取到 Cookie ，抛出异常
 - 2018.02.13 【测试】
   - 'StringUtil.java' 字符串工具类，添加测试类 'StringUtilTest.java'，每个函数进行单元测试，完善注释说明
+- 2018.02.14 【重构】
+  - 将 'TokenUtil.java' 功能复制到 'SecretUtil.java'
+     - 修改 'SecretUtilTest.java'，添加新的测试方法，测试加解密用户信息 Token (JWT)  
+     - 重写 UserDO 的 equals() 和 hashCode() 函数
+     - SecretUtil.java' 的解密用户信息 Token 函数 `decryptUserInfoToken()` 若解密异常，不返回 null，直接向上抛出 'UntilClassException' 工具类异常
+  - 删除 'TokenUtil.java'，修复相关代码调用，改为 'SecretUtil.java'，同时删除 'JwtUtilTest.java'
