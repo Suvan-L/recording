@@ -142,3 +142,14 @@
      - 重写 UserDO 的 equals() 和 hashCode() 函数
      - SecretUtil.java' 的解密用户信息 Token 函数 `decryptUserInfoToken()` 若解密异常，不返回 null，直接向上抛出 'UntilClassException' 工具类异常
   - 删除 'TokenUtil.java'，修复相关代码调用，改为 'SecretUtil.java'，同时删除 'JwtUtilTest.java'
+- 2018.02.15 【修复 + 重构】
+  - 修复 'ValidationServiceImpl.java' 的 `checkUsername()` 参数为空，不超过那你vhbhkbhlbk.jll.bj.kklbk,        你，bk/sasaasassssssssssssssssssssssssssssssssssssssssssssssssssssss抛出 'NullPointerException' 空指针异常 Bug，加入判断，提前处理异常
+  - 修复 'ApiExceptionHandler.java' API 异常处理器内，打印日志函函数 `printApiExceptionToLocalLog()` ，若抛出异常时，并未链式调用 `.log(LogWarnEnum)`，则枚举类为空，获取枚举类的错误信息字符串时，抛出控制针异常 Bug
+    - 主要针对在异常跑出前直接使用 `log.warn(...)`，并不链式调用的情况
+    - 加入 null 判断，预防控制针异常情况
+  - 重构 'AccountControllerTest.java' 账户接口测试类
+    - 私有函数优化，移动到类的最下方，并添加分隔符
+    - 优化 @Before 标识的 `setup()` 函数，初始化 MockMvc 实例，添加过滤器，上下文内的`LOGIN_USER` 属性
+    - 优化 `/api/account`，`/api/account/state` 和 `/api/account/login` 接口的测试函数
+    - 删除已优化接口测试函数类变量，接口定义，定义至函数内，保证测试用例之间的隔离性
+    - 新增 `/api/account/following` 和 `/api/account/followed` 接口测试函数，先定义，未实现
