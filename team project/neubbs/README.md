@@ -134,15 +134,15 @@
   - 修复不能注销 Bug，修改 'ApiJsonDTO' 
     - 构造函数 mode 字段默认不要设置为 new Object，修改为设置 new HashMap<>(0)
     - 'CookUtil.java' Cookie 工具类，获取 Cookie 值，加入异常判断，若在 HTTP Request Headers 中未获取到 Cookie ，抛出异常
-- 2018.02.13 【测试】
++ 2018.02.13 【测试】
   - 'StringUtil.java' 字符串工具类，添加测试类 'StringUtilTest.java'，每个函数进行单元测试，完善注释说明
-- 2018.02.14 【重构】
++ 2018.02.14 【重构】
   - 将 'TokenUtil.java' 功能复制到 'SecretUtil.java'
      - 修改 'SecretUtilTest.java'，添加新的测试方法，测试加解密用户信息 Token (JWT)  
      - 重写 UserDO 的 equals() 和 hashCode() 函数
      - SecretUtil.java' 的解密用户信息 Token 函数 `decryptUserInfoToken()` 若解密异常，不返回 null，直接向上抛出 'UntilClassException' 工具类异常
   - 删除 'TokenUtil.java'，修复相关代码调用，改为 'SecretUtil.java'，同时删除 'JwtUtilTest.java'
-- 2018.02.15 【修复 + 重构】
++ 2018.02.15 【修复 + 重构】
   - 修复 'ValidationServiceImpl.java' 的 `checkUsername()` 参数为空，不超过那你vhbhkbhlbk.jll.bj.kklbk,        你，bk/sasaasassssssssssssssssssssssssssssssssssssssssssssssssssssss抛出 'NullPointerException' 空指针异常 Bug，加入判断，提前处理异常
   - 修复 'ApiExceptionHandler.java' API 异常处理器内，打印日志函函数 `printApiExceptionToLocalLog()` ，若抛出异常时，并未链式调用 `.log(LogWarnEnum)`，则枚举类为空，获取枚举类的错误信息字符串时，抛出控制针异常 Bug
     - 主要针对在异常跑出前直接使用 `log.warn(...)`，并不链式调用的情况
@@ -153,3 +153,10 @@
     - 优化 `/api/account`，`/api/account/state` 和 `/api/account/login` 接口的测试函数
     - 删除已优化接口测试函数类变量，接口定义，定义至函数内，保证测试用例之间的隔离性
     - 新增 `/api/account/following` 和 `/api/account/followed` 接口测试函数，先定义，未实现
++ 2018.02.16 【修复 + 重构 + 测试】
+  - 修复 `/api/account/state` 获取用户激活状态接口，model 返回数据异常，返回的不是期望类型`model:true`，应返回`model: {}`
+    - 且重命名 'ApiJsonDTO.java' 的 `map() -> model()`，修复相关代码调用
+  - 修复 `/api/account` 获取用户信息接口，model 内 state 字段属性值类型，表示用户激活状态（0-false，1-true）
+  - 删除  'ApiJsonDTO.java' 的 `list()` 函数，修复相关代码，改为使用 `model()`
+  - 修复 `/api/account/following` 和 `/api/account/followed` 两个接口的参数校验，参数校验时，传递 `check(ParamConst.USER_ID)` 修改为 `check(ParamConst.ID)`,直接检查 id 类型
+  - 实现 `/api/account/following` 和 `/api/account/followed` 接口测试类函数，成功性测试，异常测试
