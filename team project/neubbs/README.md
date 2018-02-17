@@ -160,3 +160,5 @@
   - 删除  'ApiJsonDTO.java' 的 `list()` 函数，修复相关代码，改为使用 `model()`
   - 修复 `/api/account/following` 和 `/api/account/followed` 两个接口的参数校验，参数校验时，传递 `check(ParamConst.USER_ID)` 修改为 `check(ParamConst.ID)`,直接检查 id 类型
   - 实现 `/api/account/following` 和 `/api/account/followed` 接口测试类函数，成功性测试，异常测试
++ 2018.02.17 【重构】
+  - 重构 `/api/account/logout` 接口 mock 成功性和异常测试
