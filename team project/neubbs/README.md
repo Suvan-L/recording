@@ -162,3 +162,9 @@
   - 实现 `/api/account/following` 和 `/api/account/followed` 接口测试类函数，成功性测试，异常测试
 + 2018.02.17 【重构】
   - 重构 `/api/account/logout` 接口 mock 成功性和异常测试
++ 2018.02.18 【修复 + 重构】
+  - 修复注册用户 BUG
+    - 自动插入 'forum_user_action' 记录时，需输入用户id，Mybatis 在 输入 UserDO 实例，插入 'forum_user' 记录，会重写往对象中注入用户 id，所以应该把插入用户基本信息数据后，准备自动插入用户行为记录前，设置 UserActionDO 对象的 id
+  - 修复 'FtpUtil.java' 完全删除目录，递归异常，删除中途突然断开连接 BUG，重写提炼删除函数，私有递归，单次连接执行删除文件及目录
+  - 重构 `/api/account/register` 接口 mock 成功性和异常测试
+    - 【补充修复】'FtpUtil.java' ftp 工具类，完全删除函数，删除初始目录
