@@ -168,3 +168,10 @@
   - 修复 'FtpUtil.java' 完全删除目录，递归异常，删除中途突然断开连接 BUG，重写提炼删除函数，私有递归，单次连接执行删除文件及目录
   - 重构 `/api/account/register` 接口 mock 成功性和异常测试
     - 【补充修复】'FtpUtil.java' ftp 工具类，完全删除函数，删除初始目录
++ 2018.02.19 【修复 + 重构 + 新增】
+  - 修复 'SecretUtil.class' 加密工具类的 `generateUserInfoToken()` 生成用户信息 Token 函数，加入空判断，若加密所需 UserDO 的某些属性为 null，则抛出 'UtilClassException' 工具类异常
+  - 创建 'PermissionException.java' 权限异常，api 拦截器中，所有检查权限，若失败，抛出 'ServiceException' 修改为抛出此异常
+  - 修复 'UserServiceImpl.java' 用户服务的 `alterUserProfile()` 修改用户个人信息函数，如果输入参数（birthday，position，description）为空，则注入 "" 空字符串，取消 null
+  - 添加功能 'PatternUtil.java' 正则工具类，添加日期格式正则匹配检测（yyyy-MM-dd），并在 'ParamValidateUtil.java' 的正则检查集合策略中(typePatternMap) 添加 ParamConst.BIRTHDAY，用户出生年月日判断
+    - 修复检测 'ParamValidateUtil.java' 参数校验 bug，若 allowEmptyTypeSet 中允许为空，则不在 `check()` 执行检查，直接跳过（不必对value = null 元素执行范围检查和正则检查）
+  - 重构 `/api/account/update-profile` 修改用户基本信息接口，优化成功性测试，添加异常测试
