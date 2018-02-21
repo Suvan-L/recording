@@ -175,3 +175,8 @@
   - 添加功能 'PatternUtil.java' 正则工具类，添加日期格式正则匹配检测（yyyy-MM-dd），并在 'ParamValidateUtil.java' 的正则检查集合策略中(typePatternMap) 添加 ParamConst.BIRTHDAY，用户出生年月日判断
     - 修复检测 'ParamValidateUtil.java' 参数校验 bug，若 allowEmptyTypeSet 中允许为空，则不在 `check()` 执行检查，直接跳过（不必对value = null 元素执行范围检查和正则检查）
   - 重构 `/api/account/update-profile` 修改用户基本信息接口，优化成功性测试，添加异常测试
++ 2018.02.21 【测试】
+  - 优化 `/api/account/update-password` 修改密码接口测试
+    - 优化成功性测试，异常测试
+    - 补充注释，提取函数`getNoActivatedUserDO()` 和 `getOtherAlreadyLoginUserCookie()`
+  - 修复 'AccountControllerTest.java'， 符号 bug（前一次提交问题）
