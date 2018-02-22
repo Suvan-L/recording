@@ -180,3 +180,8 @@
     - 优化成功性测试，异常测试
     - 补充注释，提取函数`getNoActivatedUserDO()` 和 `getOtherAlreadyLoginUserCookie()`
   - 修复 'AccountControllerTest.java'， 符号 bug（前一次提交问题）
++ 2018.02.22 【测试】
+  - 优化 `/api/account/update-email` 修改邮箱接口测试
+    - 优化成功性测试，异常测试
+    - 'AccountControllerTest.java' 优化注释，异常测试函数，加入 [✔]
+    - 删除不必要变量声明例如 `Throwable throwable = ne.getRootCause();`
