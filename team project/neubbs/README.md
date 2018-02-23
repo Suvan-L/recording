@@ -185,3 +185,8 @@
     - 优化成功性测试，异常测试
     - 'AccountControllerTest.java' 优化注释，异常测试函数，加入 [✔]
     - 删除不必要变量声明例如 `Throwable throwable = ne.getRootCause();`
++ 2018.02.23 【测试】
+	- 优化 `/api/account/activate` 激活账户接口测试
+		- 优化成功性测试，异常测试
+		- 激活邮件内容修复
+		- 成功性测试发送邮件，增加阻塞主线程最大限制时间 60 s，保证测试成功率
