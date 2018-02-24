@@ -186,7 +186,16 @@
     - 'AccountControllerTest.java' 优化注释，异常测试函数，加入 [✔]
     - 删除不必要变量声明例如 `Throwable throwable = ne.getRootCause();`
 + 2018.02.23 【测试】
-	- 优化 `/api/account/activate` 激活账户接口测试
-		- 优化成功性测试，异常测试
-		- 激活邮件内容修复
-		- 成功性测试发送邮件，增加阻塞主线程最大限制时间 60 s，保证测试成功率
+  - 优化 `/api/account/activate` 激活账户接口测试
+    - 优化成功性测试，异常测试
+    - 激活邮件内容修复
+    - 成功性测试发送邮件，增加阻塞主线程最大限制时间 60 s，保证测试成功率
++ 2018.02.24【重构 + 测试 + 修复】
+  - 优化 'SecretUtil.java' 加密工具类，加入参数空检测，若参数为空，则抛出指定异常
+  - 优化 `/api/account/validate` 激活 token 验证接口测试
+    - 优化成功性测试，异常测试
+  - 修复 'HttpServiceImpl.java' 的 `saveCaptchaText()` 作用域保存验证码 BUG （request -> session）
+  - 优化 `/api/account/captcha` 生成图片验证码接口测试
+    - 优化成功性测试
+    - 优化注释 
+
