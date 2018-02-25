@@ -198,4 +198,14 @@
   - 优化 `/api/account/captcha` 生成图片验证码接口测试
     - 优化成功性测试
     - 优化注释 
++ 2018.02.25 【测试 + 重构】
+  - 优化 `/api/account/check-captcha`
+  	- 接口重命名为 `/api/account/validate-captcha`
+  	- 优化成功性测试，异常测试 
+  - 优化 `/api/account/forget-password`
+  	- 优化成功性测试，异常测试
+  - 重构 'IEmailService.java' 重构邮箱服务接口类
+  	- 修改 'EmailServiceImpl.java' 实现类，合并函数，只提供出发送激活邮件和充值临时密码邮件函数
+  	- 修改 'AccountController.java' 激活用户和忘记密码接口，修复相关代码调用
+
 
