@@ -200,12 +200,17 @@
     - 优化注释 
 + 2018.02.25 【测试 + 重构】
   - 优化 `/api/account/check-captcha`
-  	- 接口重命名为 `/api/account/validate-captcha`
-  	- 优化成功性测试，异常测试 
+    - 接口重命名为 `/api/account/validate-captcha`
+    - 优化成功性测试，异常测试 
   - 优化 `/api/account/forget-password`
-  	- 优化成功性测试，异常测试
+    - 优化成功性测试，异常测试
   - 重构 'IEmailService.java' 重构邮箱服务接口类
-  	- 修改 'EmailServiceImpl.java' 实现类，合并函数，只提供出发送激活邮件和充值临时密码邮件函数
-  	- 修改 'AccountController.java' 激活用户和忘记密码接口，修复相关代码调用
-
-
+    - 修改 'EmailServiceImpl.java' 实现类，合并函数，只提供出发送激活邮件和充值临时密码邮件函数
+    - 修改 'AccountController.java' 激活用户和忘记密码接口，修复相关代码调用
++ 2018.02.26 【重构 + 修复 +  测试】
+	- 优化 'UserActionMapper.xml' 用户行为映射文件中
+		- 修改查询用户喜欢，收场，关注话题，主动关注人，被动关注人的 SQL 语句 `resultMap(UserAction) -> resultType(java.lang.String)`，查询结果删除 'fu_id' 字段，并改相应的 'IUserActionDAO' 接口函数返回值，各个服务中的调用，以及 'UserActionDAOTest.java' 的 测试代码
+	- 修复 'ApiExceptionHandler.java' 接口异常处理器，
+		- 加入判断 'ClassCastException.java' 异常，当参数转换失败时（传入不符合类型参数），接口 message 字段返回 'incorrect input parameter' 提示信息，并删除异常栈的打印代码
+	- 添加 `/api/account/following` 关注用户接口的单元测试
+		- 成功性测试，异常测试
