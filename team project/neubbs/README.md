@@ -208,9 +208,37 @@
     - 修改 'EmailServiceImpl.java' 实现类，合并函数，只提供出发送激活邮件和充值临时密码邮件函数
     - 修改 'AccountController.java' 激活用户和忘记密码接口，修复相关代码调用
 + 2018.02.26 【重构 + 修复 +  测试】
-	- 优化 'UserActionMapper.xml' 用户行为映射文件中
-		- 修改查询用户喜欢，收场，关注话题，主动关注人，被动关注人的 SQL 语句 `resultMap(UserAction) -> resultType(java.lang.String)`，查询结果删除 'fu_id' 字段，并改相应的 'IUserActionDAO' 接口函数返回值，各个服务中的调用，以及 'UserActionDAOTest.java' 的 测试代码
-	- 修复 'ApiExceptionHandler.java' 接口异常处理器，
-		- 加入判断 'ClassCastException.java' 异常，当参数转换失败时（传入不符合类型参数），接口 message 字段返回 'incorrect input parameter' 提示信息，并删除异常栈的打印代码
-	- 添加 `/api/account/following` 关注用户接口的单元测试
-		- 成功性测试，异常测试
+  - 优化 'UserActionMapper.xml' 用户行为映射文件中
+    - 修改查询用户喜欢，收场，关注话题，主动关注人，被动关注人的 SQL 语句 `resultMap(UserAction) -> resultType(java.lang.String)`，查询结果删除 'fu_id' 字段，并改相应的 'IUserActionDAO' 接口函数返回值，各个服务中的调用，以及 'UserActionDAOTest.java' 的 测试代码
+  - 修复 'ApiExceptionHandler.java' 接口异常处理器，
+    - 加入判断 'ClassCastException.java' 异常，当参数转换失败时（传入不符合类型参数），接口 message 字段返回 'incorrect input parameter' 提示信息，并删除异常栈的打印代码
+  - 添加 `/api/account/following` 关注用户接口的单元测试
+    - 成功性测试，异常测试
++ 2018.02.27 【修改格式 + 测试 + 重构】
+  - 优化项目内函数注释，
+    - 部分函数中 javaDoc 的参数注释后，中英文之间加入空格
+  - 接口测试包中，将自定义工具函数分离，仅当前包使用
+    - 重命名 'AccountCollectorTest.java' -> 'AccountControllerTest.java'
+    - 从 'AccountControllerTest.java' 将私有函数抽离至 'ApiTestUtil.java'，功能复用
+    - 修复 bug
+      - 执行整个 'AccountControllerTest.java' 时，当执行到 `testFollowingUserSuccess()` 测试关注用户成功函数时，出现问题，数据源不可预料的切换到了云数据库，导致出现异常
+      - 因为测试函数都是针对本地数据源的，所以若切换到云数据库则会出现不可预料异常，单个函数测试的时候无问题，但整个类测试时，出现问题
+      - 【解决方法】 在初始化的 '@Before' 声明的 `setup()` 函数（每个测试函数执行前都会执行一次）中，加入动态切换数据源代码 `DynamicSwitchDataSourceHandler.setDataSource(SetConst.LOCALHOST_DATA_SOURCE_MYSQL);设置为本地 MySQL; 
+      - 原本是只在 '@BeforeClass' 声明的 `init()` 函数中，进行指定当前线程的数据源
+  - 优化 'CountControllerTest.java' 统计测试接口类函数
+    - 优化 `/api/count` 论坛基数统计接口测试函数
+    - 优化 `/api/count/online` 在线统计接口测试函数
+    - 优化 `/api/count/user` 用户统计接口测试函数
+  - 重构 'FileControllerTest.java' 文件接口测试类函数
+    - 修改 `/api/file/avator` 上传用户头像接口
+      - 重命名为 `...../avatar` ，
+      - 请求参数名 `avatorImage` -> `avatarImageFile`
+      - 加入限制 `consumes = "multipart/form-data"`
+    - 删除 'IFileTreatService.java' 和 'FileTreatServiceImpl.java' 
+      - 唯一的函数 `checkUserUploadAvatarNorm()` 检测上传文件规范，移动到 'IValidationService.java' 和 'ValidationServiceImpl.java'，修复相关代码调用，补充注释
+      - 将 'LogWarnEnum.java' 中的 FS 常量删除，修改为 VS
+    - 修改 'FtpServiceImpl.java' ftp 服务实现类，删除无用函数（功能重复了）
+    - 修改 'FtpUtil.java' ftp 工具类，上传文件函数，加入不存在目录检测
+    - 优化 `/api/file/avatar` 上传用户头像接口测试函数
+      - 成功性测试，异常测试
+    - 删除文件接口测试类中私有函数，改为调用公共函数工具类
