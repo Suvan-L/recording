@@ -242,3 +242,10 @@
     - 优化 `/api/file/avatar` 上传用户头像接口测试函数
       - 成功性测试，异常测试
     - 删除文件接口测试类中私有函数，改为调用公共函数工具类
++ 2018.02.28 【重构】
+  - 优化 '/api/topic' 获取话题信息接口函数
+    - 'TopicControllerTest.java' 话题接口测试类，函数私有函数移动到 'ApiTestUtil.java' 接口测试工具类
+    - 'ApiTest.Util.java' 添加 ` confirmMapShouldHavaKeyItems()` 确认 Map 具备指定选项函数
+    - 'IUserService.java' 的 `isUserLikeTopic()` 函数取消验证用户存在性，修复其接口实现类
+    - 修改'TopicController.java' 的 `getTopicInfo()` 函数，优化注释，修改部分变量名，调整代码顺序
+    - 优化 '/api/topic' 接口的单元测试，仅保留三种测试，二种成功性（阅读数增加，阅读数不变），异常测试
