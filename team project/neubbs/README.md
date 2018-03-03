@@ -256,3 +256,9 @@
 + 2018.03.02 【测试】
   - 优化 '/api/topics/hot' 获取热议话题列表接口测试
     - 成功性测试 ，注释
++ 2018.03.03 【测试】
+  - 优化 'api/topics/hot' 获取首页话题信息列表测试
+    - 成功性测试，异常测试
+    - 遇到动态切换数据源失败（无法切换成本地 MySQL，依旧使用云 MySQL）
+      - 【解决方案】因为 service 层加了事务，所以在 JUnit 测试函数中，需要加入 @Transactional 注解 
+    - 修改 'TopicController.java' 控制层内接口代码的 javadoc 注释
