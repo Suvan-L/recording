@@ -262,3 +262,9 @@
     - 遇到动态切换数据源失败（无法切换成本地 MySQL，依旧使用云 MySQL）
       - 【解决方案】因为 service 层加了事务，所以在 JUnit 测试函数中，需要加入 @Transactional 注解 
     - 修改 'TopicController.java' 控制层内接口代码的 javadoc 注释
++ 2018.03.04 【测试】
+  - 优化 'api/topics/pages' 获取话题总页数接口测试
+    - 成功性测试，异常测试 
+    - 修改 'TopicServiceImpl.java' 内抛出不存在用户异常函数，日志打印信息，修改为提示`LogWarnEnum.US18`，表明不存在用户
+  - 优化 'api/topics/pages' 获取话题分类信息接口测试
+    - 成功性测试 
