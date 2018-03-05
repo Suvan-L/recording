@@ -268,3 +268,7 @@
     - 修改 'TopicServiceImpl.java' 内抛出不存在用户异常函数，日志打印信息，修改为提示`LogWarnEnum.US18`，表明不存在用户
   - 优化 'api/topics/pages' 获取话题分类信息接口测试
     - 成功性测试 
++ 2018.03.05 【测试】
+  - 优化 'api/topic' （POST）发布话题接口测试
+    - 修复 'TopicServiceImpl.java' 的 `saveTopic()` 保存话题函数，插入话题内容和话题行为时，topicid 为空的bug，调整代码顺序
+    - 成功性测试，异常测试 
