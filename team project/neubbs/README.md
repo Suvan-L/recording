@@ -272,3 +272,12 @@
   - 优化 'api/topic' （POST）发布话题接口测试
     - 修复 'TopicServiceImpl.java' 的 `saveTopic()` 保存话题函数，插入话题内容和话题行为时，topicid 为空的bug，调整代码顺序
     - 成功性测试，异常测试 
++ 2018.03.08 【测试】
+  - 优化 'api/topic/reply' （POST）发布回复接口测试
+    - 优化成功性测试
+    - 添加异常测试
+  - 修改首页 'README.md' 说明文档
+    - 添加相关 wiki 引用
+    - 添加后端开发说明
+    - 删除后端依赖解释 'FTP（FTP(Windows service and FTPClient)' 
+
