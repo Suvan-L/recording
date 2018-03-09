@@ -17,3 +17,6 @@
   - 'index.html' 移动至 webapp 目录
 + 2018.01.23 【删除】
   - 删除 java-back 目录下所有文件，准备重新搭建（先设计技术栈，再搭建）
++ 2018.03.09 【删除 + 搭建】
+  - 删除 java 版本，修改说明文档，该项目主要基于 Ruby On Rails 构建
+  - 搭建 Ruby On Rails 环境，根据 [Rails 入门](https://ruby-china.github.io/rails-guides/getting_started.html),敲 DEMO，学习进度 ->  '5.4 创建 Article 模型'
