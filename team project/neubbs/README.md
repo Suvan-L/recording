@@ -280,4 +280,10 @@
     - 添加相关 wiki 引用
     - 添加后端开发说明
     - 删除后端依赖解释 'FTP（FTP(Windows service and FTPClient)' 
-
++ 2018.03.09 【测试】
+  - 优化 'api/topic-remove' 删除话题接口测试
+    - 优化成功性测试，修复根据 topicId 删除失败 bug
+      - （发现问题） 'forum_topic' 的话题 id，存在  'forum_topic_action' 的话题 id 主外键关联关系，但是 'TopicServiceImpl.java' 的 `removeTopic()`业务代码中，并未包含删除逻辑，导致删除时，因外键引用造成删除失败
+      - （解决问题）'TopicActionMapper.xml' 映射文件，添加关于删除的 sql 语句，加入 DAO 层以及通过 DAO 层测试，业务层添加删除逻辑
+    - 添加异常测试
+      - 'ApiTestUtil.java' 添加获取非管理员用户函数，修改部分注释 
