@@ -287,3 +287,9 @@
       - （解决问题）'TopicActionMapper.xml' 映射文件，添加关于删除的 sql 语句，加入 DAO 层以及通过 DAO 层测试，业务层添加删除逻辑
     - 添加异常测试
       - 'ApiTestUtil.java' 添加获取非管理员用户函数，修改部分注释 
++ 2018.03.10 【测试】
+  - 优化 'api/topic/reply-remove' 话题回复接口测试
+    - 修改成功性测试
+    - 添加异常测试
+    - 'TopicController.java' 中为该接口添加管理员权限标识 @AdminRank，需要管理员权限才能删除回复，普通用户无法删除回复
+
