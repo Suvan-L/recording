@@ -298,3 +298,11 @@
 + 2018.03.12 【测试】
   - 优化 'api/topic-update' 话题更新接口测试
     - 修改成功性测试，添加异常测试 
++ 2018.03.13 【测试】
+  - 优化 'api/topic/like' 点赞话题接口测试
+    - 'LogWarnEnum.java' 加入 TS26 “话题行为修改失败” 提示 log 信息
+    - 'TopicController.java' 接口返回值优化，话题服务修改话题点赞数，加入变量标识
+    - 优化 'ITopicActionDAO.java' 话题数据行为语句，优化相应测试与 mapper.xml 语句
+    - 修改 'ITopicService.java' 话题服务接口的 `alterTopicLikeByInstruction()` 函数，修改函数名为`alterTopicLikeByCommand()` ，修改返回值类型以及添加 用户 id 输入参数
+    - 修改 'TopicServiceImpl.java' 话题实现类接口的 `alterTopicLikeByCommand()` ，修复点赞反向增加 bug，修复取消点赞逻辑，返回值优化，只返回 int 类型，最新的点赞话题数
+    - 修改成功性测试，添加异常测试
