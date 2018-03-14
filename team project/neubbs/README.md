@@ -306,3 +306,6 @@
     - 修改 'ITopicService.java' 话题服务接口的 `alterTopicLikeByInstruction()` 函数，修改函数名为`alterTopicLikeByCommand()` ，修改返回值类型以及添加 用户 id 输入参数
     - 修改 'TopicServiceImpl.java' 话题实现类接口的 `alterTopicLikeByCommand()` ，修复点赞反向增加 bug，修复取消点赞逻辑，返回值优化，只返回 int 类型，最新的点赞话题数
     - 修改成功性测试，添加异常测试
++ 2018.03.14 【测试】
+  - 新增 'api/topic/newlike' 新话题点赞接口测试
+    - 添加成功性测试和异常测试
