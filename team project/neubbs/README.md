@@ -1,7 +1,6 @@
 # Neubbs 项目
 
 ## 待完成目标
-+ 重构代码（功能代码 + 单元测试）
 + 环境脚搭建，尝试 Docker 部署应用程序
 + 消息通知功能开发
 + 日志系统
@@ -309,3 +308,13 @@
 + 2018.03.14 【测试】
   - 新增 'api/topic/newlike' 新话题点赞接口测试
     - 添加成功性测试和异常测试
++ 2018.03.15 【测试 + 优化格式 + 添加】
+  - 优化 'api/topic/collect' 收藏话题接口测试
+    - 修改成功性测试，添加异常测试
+  - 优化 'TopicControllerTest.java'，'AccountControllerTest.java' 和 'FileControllerTest.java' 的注释
+    - 主要修改异常注释，格式不规范说明 
+  - 添加 'api/topic/attention' 关注话题接口测试
+    - 添加成功性测试和异常测试
+    - 修复 'TopicActionDAOTest.java' 的 `testRemoveTopicAction()` 测试函数，删除 id 输入错误 bug，应输入话题 id 而不是 'forum_topic_action' 的自增 id
+    - 修复 'TopicControllerTest.java' 类执行时，部分函数动态切换数据源失败，例如`testGetTopicInfoSuccessOfAddRead()` 乱序执行时，前一个函数要加入事务，否则会影响后一个函数的数据源切换，同时也在 @Before 标识的 `setup()` 函数内加入动态切换数据源代码
+  - 添加工具类统一测试套件 'TestAllUtil.java'，修改 'StringUtilTest.java' 中的日期天数函数测试案例  
