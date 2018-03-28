@@ -8,3 +8,7 @@
   - 將 "张恕征" 修改为“刘淑玮”， zheng-master 更名为 zheng-introduce，存放框架介绍
 - 2018.03.28 凌晨
   - 修改前端 index.html 页面，删除部分信息，主要 “通用”  -> "仓库"
+- 2018.03.29 凌晨
+	- 删除 zheng-oss，zheng-pay，zheng-wechat，zheng-shop 模块
+		- 修改部分前端页面，加入 “仓库”
+   
