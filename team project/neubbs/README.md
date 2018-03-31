@@ -317,4 +317,8 @@
     - 添加成功性测试和异常测试
     - 修复 'TopicActionDAOTest.java' 的 `testRemoveTopicAction()` 测试函数，删除 id 输入错误 bug，应输入话题 id 而不是 'forum_topic_action' 的自增 id
     - 修复 'TopicControllerTest.java' 类执行时，部分函数动态切换数据源失败，例如`testGetTopicInfoSuccessOfAddRead()` 乱序执行时，前一个函数要加入事务，否则会影响后一个函数的数据源切换，同时也在 @Before 标识的 `setup()` 函数内加入动态切换数据源代码
-  - 添加工具类统一测试套件 'TestAllUtil.java'，修改 'StringUtilTest.java' 中的日期天数函数测试案例  
+  - 添加工具类统一测试套件 'TestAllUtil.java'，修改 'StringUtilTest.java' 中的日期天数函数测试案例
+
++ 2018.03.31 【重构】
+  - 优化全局异常处理器，完善未知异常与类型转换异常的日志异常追踪信息，调整部分代码结构
+    - 存在部分点未完善，加入在类注释中，后续有思路将继续完善 
