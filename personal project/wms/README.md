@@ -9,6 +9,7 @@
 - 2018.03.28 凌晨
   - 修改前端 index.html 页面，删除部分信息，主要 “通用”  -> "仓库"
 - 2018.03.29 凌晨
-	- 删除 zheng-oss，zheng-pay，zheng-wechat，zheng-shop 模块
-		- 修改部分前端页面，加入 “仓库”
-   
+  - 删除 zheng-oss，zheng-pay，zheng-wechat，zheng-shop 模块
+    - 修改部分前端页面，加入 “仓库”
+- 2018.04.01
+	- 全面修改 zheng -> wms ，删除无用模块（pay, show, wechat，ucenter），提取 sql 语句，分为构建表，和插入测试数据，删除无用表，修改项目，并进行运行测试（成功）
