@@ -12,4 +12,9 @@
   - 删除 zheng-oss，zheng-pay，zheng-wechat，zheng-shop 模块
     - 修改部分前端页面，加入 “仓库”
 - 2018.04.01
-	- 全面修改 zheng -> wms ，删除无用模块（pay, show, wechat，ucenter），提取 sql 语句，分为构建表，和插入测试数据，删除无用表，修改项目，并进行运行测试（成功）
+  - 全面修改 zheng -> wms ，删除无用模块（pay, show, wechat，ucenter），提取 sql 语句，分为构建表，和插入测试数据，删除无用表，修改项目，并进行运行测试（成功）
+- 2018.04.07
+  - 重新设计数据库表（用户权限与仓库库存）与设计测试数据，并重新构建 sql 构建脚本
+  - 修改 upms 和 cms 系统的 mybatis 逆向生成工具类（zheng -> wms），修复路径中有中文名就无法生成 generatorConfig.xml 的 bug
+  - 修改 commen 包下关于 Controller，Service 的 vm 模板（路径：D:\java\Intellij IDEA\project\wms\wms-common\src\main\resources\template\\*.vm）
+  - 对 cms 模块执行逆向操作，生成 Service，并修改部分日期注释为 `suvan on 2018/04/06`
