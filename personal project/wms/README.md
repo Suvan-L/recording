@@ -18,3 +18,9 @@
   - 修改 upms 和 cms 系统的 mybatis 逆向生成工具类（zheng -> wms），修复路径中有中文名就无法生成 generatorConfig.xml 的 bug
   - 修改 commen 包下关于 Controller，Service 的 vm 模板（路径：D:\java\Intellij IDEA\project\wms\wms-common\src\main\resources\template\\*.vm）
   - 对 cms 模块执行逆向操作，生成 Service，并修改部分日期注释为 `suvan on 2018/04/06`
+  - 修改测试数据，加入不同角色用户，修改相关的 *.sql 脚本
+  - 添加自设计项目的  'wms’ logo
+  - 修改 wms-upms 后台管理页面 `index.jsp` 页面
+  - 删除项目后端代码内部分注释 
+- 2018.04.08 
+  - 【凌晨】添加仓库库存管理框架（模块构建好，功能未完全实现）
