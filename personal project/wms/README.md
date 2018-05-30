@@ -28,3 +28,7 @@
   - 修改项目文档说明，新增  'wms-resources' 目录，存放设计图
 - 2018.05.29
   - 尝试开启邮件阀值监控，单线程邮件发送成功，wms 项目 maven 重新 install 成功（解决 ClassNoException 问题） 
+- 2018.05.30
+  - 修改发送邮件工具类（SendEmailUtil.java），增加线程池，异步发送
+  - 修改  'CmsWarehouseCapacityController' 仓库容量接口，仅当当容量达到预设阀值 90% 时，才发送提醒邮件至 liushuiwei0925@gmail.com
+  - 修改项目根目录 README.md ，邮件提醒功能 ，完成库存阀值提醒
